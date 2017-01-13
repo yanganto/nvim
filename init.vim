@@ -36,3 +36,9 @@ Plug '~/my-prototype-plugin'
 
 " Add plugins to &runtimepath
 call plug#end()
+
+""""""""""""""""""""
+""" Sort cuts
+""""""""""""""""""""
+map <F5> <ESC>:NERDTreeToggle<CR>
+
