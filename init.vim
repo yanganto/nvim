@@ -9,8 +9,8 @@ call plug#begin('~/.config/nvim/plugged')
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
-" from github
 Plug 'kshenoy/vim-signature'
+Plug 'ervandew/supertab'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
