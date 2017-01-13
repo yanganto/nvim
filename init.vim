@@ -11,6 +11,7 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'kshenoy/vim-signature'
 Plug 'ervandew/supertab'
+Plug 'Yggdroot/indentLine'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -45,9 +46,18 @@ call plug#end()
 """"""""""""""""""""
 set nu
 
-
 """"""""""""""""""""
 """ Sort cuts
 """"""""""""""""""""
+
+
+""""""""""""""""""""
+""" Plug Settings
+""""""""""""""""""""
+
+"NERDTree"
 map <F5> <ESC>:NERDTreeToggle<CR>
 
+"indentLine"
+let g:indentLine_char = '┆'
+map <F6> <ESC>:IndentLinesToggle<CR>
