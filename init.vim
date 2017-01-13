@@ -9,6 +9,9 @@ call plug#begin('~/.config/nvim/plugged')
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
+" from github
+Plug 'kshenoy/vim-signature'
+
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
@@ -32,10 +35,16 @@ Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
+"Plug '~/my-prototype-plugin'
 
 " Add plugins to &runtimepath
 call plug#end()
+
+""""""""""""""""""""
+""" Preset Env
+""""""""""""""""""""
+set nu
+
 
 """"""""""""""""""""
 """ Sort cuts
