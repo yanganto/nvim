@@ -11,6 +11,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'kshenoy/vim-signature'
 Plug 'Yggdroot/indentLine'
 Plug 'Valloric/YouCompleteMe'
+Plug 'tpope/vim-commentary'
 
 
 " Any valid git URL is allowed
@@ -61,3 +62,4 @@ map <F5> <ESC>:NERDTreeToggle<CR>
 "indentLine"
 let g:indentLine_char = '┆'
 map <F6> <ESC>:IndentLinesToggle<CR>
+
