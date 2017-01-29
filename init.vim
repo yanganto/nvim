@@ -12,6 +12,10 @@ Plug 'kshenoy/vim-signature'
 Plug 'Yggdroot/indentLine'
 Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-commentary'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'vim-syntastic/syntastic'
 
 
 " Any valid git URL is allowed
