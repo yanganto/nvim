@@ -16,7 +16,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-syntastic/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'chase/vim-ansible-yaml'
+Plug 'zchee/nvim-go', { 'do': 'make'}
+Plug 'darthmall/vim-vue'
 
+Plug '~/TestCode/NeoVimPlugins/nvim-translate'
 
 " Any valid git URL is allowed
 "Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -50,6 +55,10 @@ call plug#end()
 """ Preset Env
 """"""""""""""""""""
 set nu
+autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
+
 
 
 """"""""""""""""""""
@@ -67,3 +76,12 @@ map <F6> <ESC>:IndentLinesToggle<CR>
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
 let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+
+"Syntastic"
+let g:syntastic_javascript_checkers = ['standard']
+
+" Go Debug
+let g:ConqueTerm_Color = 2                                                            
+let g:ConqueTerm_CloseOnEnd = 1                                                       
+let g:ConqueTerm_StartMessages = 0                                                    
+
