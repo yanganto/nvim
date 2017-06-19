@@ -22,6 +22,7 @@ Plug 'zchee/nvim-go', { 'do': 'make'}
 Plug 'darthmall/vim-vue'
 Plug '~/TestCode/NeoVimPlugins/nvim-translate'
 
+
 " Any valid git URL is allowed
 "Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
@@ -53,6 +54,12 @@ call plug#end()
 """"""""""""""""""""
 """ Preset Env
 """"""""""""""""""""
+
+set encoding=utf-8
+set termencoding=utf-8
+set langmenu=zh_TW.UTF-8
+language message zh_TW.UTF-8
+
 set nu
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
@@ -84,3 +91,5 @@ let g:ConqueTerm_Color = 2
 let g:ConqueTerm_CloseOnEnd = 1                                                       
 let g:ConqueTerm_StartMessages = 0                                                    
 
+" nvim-translator
+map <C-t> <ESC>:Translate<CR>
