@@ -21,6 +21,9 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'zchee/nvim-go', { 'do': 'make'}
 Plug 'darthmall/vim-vue'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mileszs/ack.vim'
 Plug '~/TestCode/NeoVimPlugins/nvim-translate'
 
 
@@ -107,3 +110,8 @@ map <C-t> <ESC>:Translate<CR>
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" Ack.vim (use ag )
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
