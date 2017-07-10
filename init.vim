@@ -86,6 +86,15 @@ let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 "Syntastic"
 let g:syntastic_javascript_checkers = ['standard']
 
+let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_python_pylint_args='--disable=C0301'
+" C0111 - doc string check
+" C0301 - line to long
+" R0903 - No method class warning
+
+let g:syntastic_check_on_open = 1
+
+
 " Go Debug
 let g:ConqueTerm_Color = 2                                                            
 let g:ConqueTerm_CloseOnEnd = 1                                                       
