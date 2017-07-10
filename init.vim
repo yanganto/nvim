@@ -20,6 +20,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'chase/vim-ansible-yaml'
 Plug 'zchee/nvim-go', { 'do': 'make'}
 Plug 'darthmall/vim-vue'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug '~/TestCode/NeoVimPlugins/nvim-translate'
 
 
@@ -102,3 +103,7 @@ let g:ConqueTerm_StartMessages = 0
 
 " nvim-translator
 map <C-t> <ESC>:Translate<CR>
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
