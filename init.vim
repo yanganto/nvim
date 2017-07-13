@@ -25,6 +25,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
 Plug '~/TestCode/NeoVimPlugins/nvim-translate'
 
 
@@ -63,7 +64,7 @@ call plug#end()
 set encoding=utf-8
 set termencoding=utf-8
 set langmenu=zh_TW.UTF-8
-language message zh_TW.UTF-8
+"language message zh_TW.UTF-8
 
 set nu
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
