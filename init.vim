@@ -24,6 +24,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mileszs/ack.vim'
+Plug 'majutsushi/tagbar'
 Plug '~/TestCode/NeoVimPlugins/nvim-translate'
 
 
@@ -115,3 +116,6 @@ let g:ctrlp_cmd = 'CtrlP'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" TagBar
+map <F8> :TagbarToggle<CR>
