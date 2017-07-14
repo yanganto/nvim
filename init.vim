@@ -99,9 +99,10 @@ let g:syntastic_python_pylint_args='--disable=C0301'
 " C0111 - doc string check
 " C0301 - line to long
 " R0903 - No method class warning
-
 let g:syntastic_check_on_open = 1
 
+" Translate
+let g:translate_dest_lang='zh-TW'
 
 " Go Debug
 let g:ConqueTerm_Color = 2                                                            
