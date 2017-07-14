@@ -26,6 +26,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug '~/TestCode/NeoVimPlugins/nvim-translate'
 
 
