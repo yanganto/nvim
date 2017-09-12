@@ -69,6 +69,7 @@ call plug#end()
 set encoding=utf-8
 set termencoding=utf-8
 set langmenu=zh_TW.UTF-8
+hi Search cterm=NONE ctermfg=black ctermbg=gray
 "language message zh_TW.UTF-8
 
 set nu
