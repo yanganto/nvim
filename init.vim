@@ -31,6 +31,8 @@ Plug 'tpope/vim-repeat'
 "Plug '~/TestCode/NeoVimPlugins/nvim-translate'
 Plug 'yanganto/nvim-translate'
 Plug 'wting/rust.vim'
+Plug 'racer-rust/vim-racer'
+
 
 
 
