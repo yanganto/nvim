@@ -28,10 +28,10 @@ Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-"Plug '~/TestCode/NeoVimPlugins/nvim-translate'
 Plug 'yanganto/nvim-translate'
 Plug 'wting/rust.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'dhruvasagar/vim-table-mode'
 
 
 
@@ -131,3 +131,6 @@ endif
 
 " TagBar
 map <F8> :TagbarToggle<CR>
+
+" Table Mode
+map <M-t> <Esc>:TableModeToggle<CR>
