@@ -30,7 +30,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'yanganto/nvim-translate'
 Plug 'wting/rust.vim'
-Plug 'racer-rust/vim-racer'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'cespare/vim-toml'
 
@@ -79,6 +78,8 @@ set nu
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype c setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:python_host_prog = '/usr/bin/python'
 
@@ -99,6 +100,8 @@ let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_complete_in_comments=1
+" YCM for rust "
+let g:ycm_rust_src_path = '/home/yanganto/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
 "Syntastic"
 let g:syntastic_javascript_checkers = ['standard']
