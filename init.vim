@@ -32,6 +32,7 @@ Plug 'yanganto/nvim-translate'
 Plug 'wting/rust.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'cespare/vim-toml'
+Plug 'peterhoeg/vim-qml'
 
 
 
