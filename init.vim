@@ -34,6 +34,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'cespare/vim-toml'
 Plug 'peterhoeg/vim-qml'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-speeddating'
 Plug 'jceb/vim-orgmode'
 
 
