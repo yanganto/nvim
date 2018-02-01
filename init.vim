@@ -37,6 +37,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-speeddating'
 Plug 'jceb/vim-orgmode'
 Plug 'rhysd/vim-clang-format'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'idanarye/vim-vebugger'
+
 
 
 " Any valid git URL is allowed
@@ -144,3 +147,13 @@ map <F8> :TagbarToggle<CR>
 
 " Table Mode
 map <M-t> <Esc>:TableModeToggle<CR>
+
+" Debuger
+map <F2> <Esc>:VBGtoggleBreakpointThisLine<CR>
+map <F6> <Esc>:VBGstartPDB3 
+"map <F6> <Esc>:VBGclearBreakpints<CR>
+map <F9> <Esc>:VBGeval  
+map <F10> <Esc>:VBGcontinue<CR>
+map <F11> <Esc>:VBGstepOver<CR>
+map <F12> <Esc>:VBGstepIn<CR>
+
