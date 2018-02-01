@@ -36,6 +36,7 @@ Plug 'peterhoeg/vim-qml'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-speeddating'
 Plug 'jceb/vim-orgmode'
+Plug 'rhysd/vim-clang-format'
 
 
 " Any valid git URL is allowed
