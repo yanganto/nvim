@@ -15,7 +15,7 @@ Plug 'tpope/vim-commentary'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'chase/vim-ansible-yaml'
 Plug 'zchee/nvim-go', { 'do': 'make'}
@@ -29,7 +29,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'yanganto/nvim-translate'
-"Plug 'wting/rust.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'cespare/vim-toml'
@@ -40,33 +39,6 @@ Plug 'jceb/vim-orgmode'
 Plug 'rhysd/vim-clang-format'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'idanarye/vim-vebugger'
-
-
-
-" Any valid git URL is allowed
-"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Group dependencies, vim-snippets depends on ultisnips
-"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" On-demand loading
-"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using a non-master branch
-"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-"Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plugin options
-"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-"Plug '~/my-prototype-plugin'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -81,7 +53,7 @@ set langmenu=zh_TW.UTF-8
 hi Search cterm=NONE ctermfg=black ctermbg=gray
 "language message zh_TW.UTF-8
 
-set nu
+set number
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
@@ -114,15 +86,35 @@ let g:ycm_complete_in_comments=1
 " YCM for rust "
 let g:ycm_rust_src_path = '/home/yanganto/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
-"Syntastic"
-let g:syntastic_javascript_checkers = ['standard']
 
-let g:syntastic_python_checkers=['pyflakes']
-let g:syntastic_python_pylint_args='--disable=C0301'
+" ALE
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'python': ['pylint', 'flake8']
+\}
+let g:ale_python_pylint_options ='--disable=C0301,F0401,C0111' 
+" F0401 - Unable to import
 " C0111 - doc string check
-" C0301 - line to long
-" R0903 - No method class warning
-let g:syntastic_check_on_open = 1
+" C0301 - line too long
+
+let g:ale_python_flake8_options ='--ignore=E302,E501' 
+" E501  - line too long
+" E302  - two line spacing
+
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+highlight ALEWarning ctermbg=Black
+highlight ALEError ctermbg=DarkMagenta
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+
 
 " Translate
 let g:translate_dest_lang='zh-TW'
