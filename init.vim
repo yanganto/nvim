@@ -88,9 +88,11 @@ let g:ycm_rust_src_path = '/home/yanganto/.rustup/toolchains/nightly-x86_64-unkn
 
 
 " ALE
+let g:ale_linters = {
+\   'python': ['pylint', 'flake8'],
+\}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
-\   'python': ['pylint', 'flake8']
 \}
 let g:ale_python_pylint_options ='--disable=C0301,F0401,C0111' 
 " F0401 - Unable to import
@@ -102,17 +104,23 @@ let g:ale_python_flake8_options ='--ignore=E302,E501'
 " E302  - two line spacing
 
 let g:ale_sign_column_always = 1
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
+let g:ale_sign_error = '◉'
+let g:ale_sign_warning = '◉'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
-highlight ALEWarning ctermbg=Black
-highlight ALEError ctermbg=DarkMagenta
+highlight ALEErrorSign ctermfg=DarkMagenta guifg=#CC0000
+highlight ALEWarningSign ctermfg=8 ctermbg=Black guifg=#111111
+highlight ALEWarning ctermbg=8 ctermbg=Black
+highlight ALEError ctermbg=9
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_msg_format = '【%severity%｜%linter%】%s'
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:airline#extensions#ale#enabled = 1
+let g:ale_set_signs = 0
+
+
 
 
 
