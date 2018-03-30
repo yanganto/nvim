@@ -99,9 +99,10 @@ let g:ale_python_pylint_options ='--disable=C0301,F0401,C0111'
 " C0111 - doc string check
 " C0301 - line too long
 
-let g:ale_python_flake8_options ='--ignore=E302,E501' 
+let g:ale_python_flake8_options ='--ignore=E302,E303,E501' 
 " E501  - line too long
 " E302  - two line spacing
+" E302  - too many blank lines
 
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '◉'
