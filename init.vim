@@ -39,6 +39,8 @@ Plug 'jceb/vim-orgmode'
 Plug 'rhysd/vim-clang-format'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'idanarye/vim-vebugger'
+Plug 'tmhedberg/simpylfold'
+Plug 'Konfekt/FastFold'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -154,9 +156,13 @@ map <M-t> <Esc>:TableModeToggle<CR>
 " Debuger
 map <F2> <Esc>:VBGtoggleBreakpointThisLine<CR>
 map <F7> <Esc>:VBGstartPDB3 
-"map <F6> <Esc>:VBGclearBreakpints<CR>
+" map <F6> <Esc>:VBGclearBreakpints<CR>
 map <F9> <Esc>:VBGeval  
 map <F10> <Esc>:VBGcontinue<CR>
 map <F11> <Esc>:VBGstepOver<CR>
 map <F12> <Esc>:VBGstepIn<CR>
+
+
+" Fold
+highlight Folded ctermbg=17
 
