@@ -77,6 +77,7 @@ map <F5> <ESC>:NERDTreeToggle<CR>
 
 "indentLine"
 let g:indentLine_char = '┆'
+let g:indentLine_color_term = 235
 map <F6> <ESC>:IndentLinesToggle<CR>
 
 "YCM"
@@ -124,9 +125,6 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_set_signs = 0
 
 
-
-
-
 " Translate
 let g:translate_dest_lang='zh-TW'
 
@@ -164,5 +162,6 @@ map <F12> <Esc>:VBGstepIn<CR>
 
 
 " Fold
-highlight Folded ctermbg=17
+highlight Folded ctermbg=black ctermfg=239
+set foldmethod=syntax
 
