@@ -65,6 +65,7 @@ autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype markdown setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype org setlocal ts=2 sts=2 sw=2 expandtab 
+autocmd Filetype vue setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:python_host_prog = '/usr/bin/python'
 
@@ -77,7 +78,7 @@ map <F5> <ESC>:NERDTreeToggle<CR>
 
 "indentLine"
 let g:indentLine_char = '┆'
-let g:indentLine_color_term = 235
+let g:indentLine_color_term = 236
 map <F6> <ESC>:IndentLinesToggle<CR>
 
 "YCM"
@@ -115,7 +116,7 @@ highlight clear ALEWarningSign
 highlight ALEErrorSign ctermfg=DarkMagenta guifg=#CC0000
 highlight ALEWarningSign ctermfg=8 ctermbg=Black guifg=#111111
 highlight ALEWarning ctermbg=8 ctermbg=Black
-highlight ALEError ctermbg=9
+highlight ALEError ctermbg=9 ctermfg=Black
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '【%severity%｜%linter%】%s'
@@ -164,4 +165,7 @@ map <F12> <Esc>:VBGstepIn<CR>
 " Fold
 highlight Folded ctermbg=black ctermfg=239
 set foldmethod=syntax
+
+" vim table
+let g:table_mode_corner='|'
 
