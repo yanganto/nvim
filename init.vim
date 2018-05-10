@@ -41,6 +41,7 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'idanarye/vim-vebugger'
 Plug 'tmhedberg/simpylfold'
 Plug 'Konfekt/FastFold'
+Plug 'severin-lemaignan/vim-minimap'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -168,4 +169,8 @@ set foldmethod=syntax
 
 " vim table
 let g:table_mode_corner='|'
+
+" MiniMap
+map <F4> <Esc>:MinimapToggle<CR>
+let g:minimap_highlight='NonText'
 
