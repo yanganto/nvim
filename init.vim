@@ -54,6 +54,7 @@ set encoding=utf-8
 set termencoding=utf-8
 set langmenu=zh_TW.UTF-8
 hi Search cterm=NONE ctermfg=black ctermbg=gray
+hi Comment ctermfg=12 gui=bold guifg=Blue
 "language message zh_TW.UTF-8
 
 set number
