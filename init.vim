@@ -53,12 +53,17 @@ call plug#end()
 set encoding=utf-8
 set termencoding=utf-8
 set langmenu=zh_TW.UTF-8
+set guifont=Fira\ Code:h12
+
 hi Search cterm=NONE ctermfg=black ctermbg=gray
 hi Comment ctermfg=12 gui=bold guifg=Blue
 "language message zh_TW.UTF-8
 
 set number
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype css setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype c setlocal ts=4 sts=4 sw=4 expandtab
@@ -95,7 +100,7 @@ let g:ycm_rust_src_path = '/home/yanganto/.rustup/toolchains/nightly-x86_64-unkn
 
 " ALE
 let g:ale_linters = {
-\   'python': ['pylint', 'flake8'],
+\   'python': ['pylint -j2', 'flake8'],
 \}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
