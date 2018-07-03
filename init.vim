@@ -42,6 +42,8 @@ Plug 'idanarye/vim-vebugger'
 Plug 'tmhedberg/simpylfold'
 Plug 'Konfekt/FastFold'
 Plug 'severin-lemaignan/vim-minimap'
+Plug 'zivyangll/git-blame.vim'
+
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -179,4 +181,8 @@ let g:table_mode_corner='|'
 " MiniMap
 map <F4> <Esc>:MinimapToggle<CR>
 let g:minimap_highlight='NonText'
+
+" Git Blame
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
 
