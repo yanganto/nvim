@@ -19,7 +19,7 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'chase/vim-ansible-yaml'
 Plug 'zchee/nvim-go', { 'do': 'make'}
-Plug 'darthmall/vim-vue'
+Plug 'posva/vim-vue'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -43,6 +43,7 @@ Plug 'tmhedberg/simpylfold'
 Plug 'Konfekt/FastFold'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'zivyangll/git-blame.vim'
+Plug 'digitaltoad/vim-pug'
 
 
 " Add plugins to &runtimepath
@@ -116,6 +117,10 @@ let g:ale_python_flake8_options ='--ignore=E302,E303,E501'
 " E501  - line too long
 " E302  - two line spacing
 " E302  - too many blank lines
+
+" Auto remove tailing space in python
+autocmd BufWritePre *.py :%s/\s\+$//e
+
 
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '◉'
