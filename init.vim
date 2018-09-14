@@ -44,6 +44,7 @@ Plug 'Konfekt/FastFold'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'zivyangll/git-blame.vim'
 Plug 'digitaltoad/vim-pug'
+Plug 'ap/vim-css-color'
 
 
 " Add plugins to &runtimepath
