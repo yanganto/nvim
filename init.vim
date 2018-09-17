@@ -3,9 +3,6 @@
 """ - plugin manager    """
 """""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged')
-
-" Make sure you use single quotes
-
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 Plug 'kshenoy/vim-signature'
@@ -18,7 +15,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'chase/vim-ansible-yaml'
-Plug 'zchee/nvim-go', { 'do': 'make'}
+"Plug 'zchee/nvim-go', { 'do': 'make'}
 Plug 'posva/vim-vue'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
