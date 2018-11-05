@@ -42,6 +42,7 @@ Plug 'severin-lemaignan/vim-minimap'
 Plug 'zivyangll/git-blame.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'ap/vim-css-color'
+Plug 'RRethy/vim-illuminate'
 
 
 " Add plugins to &runtimepath
@@ -63,6 +64,8 @@ hi Comment ctermfg=12 gui=bold guifg=Blue
 set number
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype css setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype sass setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
