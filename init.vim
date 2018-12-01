@@ -77,6 +77,7 @@ autocmd Filetype markdown setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype org setlocal ts=2 sts=2 sw=2 expandtab 
 autocmd Filetype vue setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype just set syntax=make
 
 let g:python_host_prog = '/usr/bin/python'
 
