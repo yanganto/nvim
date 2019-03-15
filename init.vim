@@ -43,6 +43,7 @@ Plug 'zivyangll/git-blame.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'ap/vim-css-color'
 Plug 'RRethy/vim-illuminate'
+Plug 'tc50cal/vim-terminal'
 
 
 " Add plugins to &runtimepath
@@ -72,6 +73,7 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype c setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype rs setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype markdown setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=4 sts=4 sw=4 expandtab
@@ -196,5 +198,8 @@ let g:minimap_highlight='NonText'
 
 " Git Blame
 nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
+" Terminal bash
+map <C-~> <ESC>:TerminalSplit zsh<CR>
 
 
