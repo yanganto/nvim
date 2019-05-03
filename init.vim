@@ -44,6 +44,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'ap/vim-css-color'
 Plug 'RRethy/vim-illuminate'
 Plug 'tc50cal/vim-terminal'
+Plug 'tpope/vim-fugitive'
 
 
 " Add plugins to &runtimepath
