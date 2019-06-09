@@ -45,6 +45,7 @@ Plug 'ap/vim-css-color'
 Plug 'RRethy/vim-illuminate'
 Plug 'tc50cal/vim-terminal'
 Plug 'tpope/vim-fugitive'
+Plug 'alx741/vim-rustfmt'
 
 
 " Add plugins to &runtimepath
@@ -138,9 +139,9 @@ let g:ale_sign_warning = '◉'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 highlight ALEErrorSign ctermfg=DarkMagenta guifg=#CC0000
-highlight ALEWarningSign ctermfg=8 ctermbg=Black guifg=#111111
-highlight ALEWarning ctermbg=8 ctermbg=Black
-highlight ALEError ctermbg=9 ctermfg=Black
+highlight ALEWarningSign ctermfg=8 ctermbg=DarkGray guifg=#444444
+highlight ALEWarning ctermbg=8 ctermbg=DarkGray
+highlight ALEError ctermbg=9 ctermfg=DarkGray
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '【%severity%｜%linter%】%s'
@@ -203,4 +204,7 @@ nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 " Terminal bash
 map <C-~> <ESC>:TerminalSplit zsh<CR>
 
+" Rust fmt
+let g:rustfmt_on_save = 1
+let g:rustfmt_edition = '2018'
 
