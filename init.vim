@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""
+""""""""""""""""""""""""""
 """ vim plugin settings """
 """ - plugin manager    """
 """""""""""""""""""""""""""
@@ -26,7 +26,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'yanganto/nvim-translate'
-Plug 'rust-lang/rust.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'cespare/vim-toml'
 Plug 'peterhoeg/vim-qml'
@@ -45,6 +44,14 @@ Plug 'ap/vim-css-color'
 Plug 'RRethy/vim-illuminate'
 Plug 'tc50cal/vim-terminal'
 Plug 'tpope/vim-fugitive'
+
+" google tasks app
+Plug 'mattn/googletasks-vim'
+Plug 'mattn/webapi-vim'
+
+" Rust Linters
+Plug 'rust-lang/rust.vim'
+Plug 'vim-syntastic/syntastic'
 Plug 'alx741/vim-rustfmt'
 
 
@@ -206,5 +213,3 @@ map <C-~> <ESC>:TerminalSplit zsh<CR>
 
 " Rust fmt
 let g:rustfmt_on_save = 1
-let g:rustfmt_edition = '2018'
-
