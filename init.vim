@@ -7,7 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'kshenoy/vim-signature'
 Plug 'Yggdroot/indentLine'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-commentary'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -53,6 +53,7 @@ Plug 'mattn/webapi-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'alx741/vim-rustfmt'
+Plug 'zxqfl/tabnine-vim'
 
 
 " Add plugins to &runtimepath
