@@ -7,10 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'kshenoy/vim-signature'
 Plug 'Yggdroot/indentLine'
-"Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-commentary'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
@@ -40,7 +37,6 @@ Plug 'Konfekt/FastFold'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'zivyangll/git-blame.vim'
 Plug 'digitaltoad/vim-pug'
-Plug 'ap/vim-css-color'
 Plug 'RRethy/vim-illuminate'
 Plug 'tc50cal/vim-terminal'
 Plug 'tpope/vim-fugitive'
@@ -53,7 +49,17 @@ Plug 'mattn/webapi-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'alx741/vim-rustfmt'
+
+" Code Complementation
+"Plug 'Valloric/YouCompleteMe'
 Plug 'zxqfl/tabnine-vim'
+
+" Language Colorization
+Plug 'ap/vim-css-color'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'LnL7/vim-nix'
+
 
 
 " Add plugins to &runtimepath
