@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""
 """ vim plugin settings """
-""" - plugin manager    """
+"""   plugin manager    """
 """""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged')
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
@@ -35,7 +35,7 @@ Plug 'idanarye/vim-vebugger'
 Plug 'tmhedberg/simpylfold'
 Plug 'Konfekt/FastFold'
 Plug 'severin-lemaignan/vim-minimap'
-Plug 'zivyangll/git-blame.vim'
+Plug 'rhysd/git-messenger.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'RRethy/vim-illuminate'
 Plug 'tc50cal/vim-terminal'
@@ -47,7 +47,7 @@ Plug 'mattn/webapi-vim'
 
 " Rust Linters
 Plug 'rust-lang/rust.vim'
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
 Plug 'alx741/vim-rustfmt'
 
 " Code Complementation
@@ -191,19 +191,24 @@ map <F8> :TagbarToggle<CR>
 " Table Mode
 map <M-t> <Esc>:TableModeToggle<CR>
 
-" Debuger
-map <F2> <Esc>:VBGtoggleBreakpointThisLine<CR>
-map <F7> <Esc>:VBGstartPDB3 
-" map <F6> <Esc>:VBGclearBreakpints<CR>
-map <F9> <Esc>:VBGeval  
-map <F10> <Esc>:VBGcontinue<CR>
-map <F11> <Esc>:VBGstepOver<CR>
-map <F12> <Esc>:VBGstepIn<CR>
+" Spell check
+map <F9> <Esc>:set spell<CR>
+map <S-F9> <Esc>:set spell!<CR>
+map <F10> <Esc>]s
+map <F11> <Esc>z=
 
 
 " Fold
 highlight Folded ctermbg=black ctermfg=239
 set foldmethod=syntax
+au BufRead,BufNewFile *.py set foldmethod=indent
+
+" FastFold
+let g:markdown_folding = 1
+let g:tex_fold_enabled = 1
+let g:xml_syntax_folding = 1
+let g:javaScript_fold = 1
+let g:rust_fold = 1
 
 " vim table
 let g:table_mode_corner='|'
@@ -212,11 +217,18 @@ let g:table_mode_corner='|'
 map <F4> <Esc>:MinimapToggle<CR>
 let g:minimap_highlight='NonText'
 
-" Git Blame
-nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+" Git Messenger
+nmap <Leader>gm <Plug>(git-messenger)
+let g:git_messenger_include_diff = "current"
+hi gitmessengerPopupNormal term=None guifg=#eeeeee guibg=#333333 ctermfg=255 ctermbg=234
+hi gitmessengerHeader term=None guifg=#88b8f6 ctermfg=111
+hi gitmessengerHash term=None guifg=#f0eaaa ctermfg=229
+hi gitmessengerHistory term=None guifg=#fd8489 ctermfg=210
+
 
 " Terminal bash
 map <C-~> <ESC>:TerminalSplit zsh<CR>
 
 " Rust fmt
 let g:rustfmt_on_save = 1
+
