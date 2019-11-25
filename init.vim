@@ -40,6 +40,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'RRethy/vim-illuminate'
 Plug 'tc50cal/vim-terminal'
 Plug 'tpope/vim-fugitive'
+Plug 'ryanoasis/vim-devicons'
 
 " google tasks app
 Plug 'mattn/googletasks-vim'
@@ -232,3 +233,4 @@ map <C-~> <ESC>:TerminalSplit zsh<CR>
 " Rust fmt
 let g:rustfmt_on_save = 1
 
+let g:NERDTreeHighlightCursorline = 1
