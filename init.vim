@@ -111,6 +111,7 @@ hi ColorColumn ctermbg=black
 
 "NERDTree"
 map <F5> <ESC>:NERDTreeToggle<CR>
+let g:NERDTreeHighlightCursorline = 1
 
 "indentLine"
 let g:indentLine_char = '┆'
@@ -188,6 +189,7 @@ endif
 
 " TagBar
 map <F8> :TagbarToggle<CR>
+autocmd FileType tagbar setlocal cursorline
 
 " Table Mode
 map <M-t> <Esc>:TableModeToggle<CR>
@@ -233,4 +235,3 @@ map <C-~> <ESC>:TerminalSplit zsh<CR>
 " Rust fmt
 let g:rustfmt_on_save = 1
 
-let g:NERDTreeHighlightCursorline = 1
