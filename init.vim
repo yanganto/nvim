@@ -18,7 +18,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mileszs/ack.vim'
-Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vista.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -40,7 +40,6 @@ Plug 'digitaltoad/vim-pug'
 Plug 'RRethy/vim-illuminate'
 Plug 'tc50cal/vim-terminal'
 Plug 'tpope/vim-fugitive'
-Plug 'ryanoasis/vim-devicons'
 
 " google tasks app
 Plug 'mattn/googletasks-vim'
@@ -187,9 +186,11 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" TagBar
-map <F8> :TagbarToggle<CR>
-autocmd FileType tagbar setlocal cursorline
+" vista
+map <F8> :Vista!!<CR>
+let g:vista_default_executive = 'ctags'
+"let g:vista_sidebar_width = 60 " default is 30
+
 
 " Table Mode
 map <M-t> <Esc>:TableModeToggle<CR>
@@ -234,4 +235,3 @@ map <C-~> <ESC>:TerminalSplit zsh<CR>
 
 " Rust fmt
 let g:rustfmt_on_save = 1
-
