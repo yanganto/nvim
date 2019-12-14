@@ -196,10 +196,16 @@ let g:vista_default_executive = 'ctags'
 map <M-t> <Esc>:TableModeToggle<CR>
 
 " Spell check
-map <F9> <Esc>:set spell<CR>
-map <S-F9> <Esc>:set spell!<CR>
+function! ToggleSpellCheck()
+  set spell!
+  if &spell
+    echo "Spellcheck ON"
+  else
+    echo "Spellcheck OFF"
+  endif
+endfunction
+map <F9> <Esc>:call ToggleSpellCheck()<CR>
 map <F10> <Esc>]s
-map <F11> <Esc>z=
 
 
 " Fold
