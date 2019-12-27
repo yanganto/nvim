@@ -186,11 +186,31 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" vista
-map <F8> :Vista!!<CR>
+" Vista
 let g:vista_default_executive = 'ctags'
-"let g:vista_sidebar_width = 60 " default is 30
-
+let g:vista_mode = "none"
+function! ToggleVistaWindow()
+  if g:vista_mode == "none"
+    let g:vista_sidebar_width = 30
+    let g:vista_mode = "small"
+    Vista
+    echo "Set Vista Window Small"
+  elseif g:vista_mode == "small"
+    let g:vista_sidebar_width = 60
+    let g:vista_mode = "mid"
+    Vista! | Vista
+    echo "Set Vista Window Middle"
+  elseif g:vista_mode == "mid"
+    let g:vista_sidebar_width = 90
+    let g:vista_mode = "large"
+    Vista! | Vista
+    echo "Set Vista Window Large"
+  else
+    let g:vista_mode = "none"
+    Vista!
+  endif
+endfunction
+map <F8> <Esc>:call ToggleVistaWindow()<CR>
 
 " Table Mode
 map <M-t> <Esc>:TableModeToggle<CR>
