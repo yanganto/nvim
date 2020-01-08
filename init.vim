@@ -48,7 +48,7 @@ Plug 'mattn/webapi-vim'
 " Rust Linters
 Plug 'rust-lang/rust.vim'
 "Plug 'vim-syntastic/syntastic'
-Plug 'alx741/vim-rustfmt'
+"Plug 'alx741/vim-rustfmt'
 
 " Code Complementation
 "Plug 'Valloric/YouCompleteMe'
@@ -92,6 +92,7 @@ autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype rs setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype markdown setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype asciidoc setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype sh setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype org setlocal ts=2 sts=2 sw=2 expandtab 
 autocmd Filetype vue setlocal ts=2 sts=2 sw=2 expandtab
@@ -260,4 +261,4 @@ hi gitmessengerHistory term=None guifg=#fd8489 ctermfg=210
 map <C-~> <ESC>:TerminalSplit zsh<CR>
 
 " Rust fmt
-let g:rustfmt_on_save = 1
+let g:rustfmt_autosave = 1
