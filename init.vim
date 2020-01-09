@@ -117,8 +117,23 @@ let g:NERDTreeHighlightCursorline = 1
 "indentLine"
 let g:indentLine_char = '┆'
 let g:indentLine_color_term = 236
-map <F6> <ESC>:IndentLinesToggle<CR>
 set list lcs=tab:\┆\ 
+let g:indent_line_mode = "enable"
+highlight default TabIndent ctermfg=236 guifg=236
+match TabIndent /\t/
+function! ToggleIndentLineMode()
+  if g:indent_line_mode == "enable"
+    set list lcs=tab:\ \ 
+    IndentLinesToggle
+    let g:indent_line_mode = "disable"
+  else
+    set list lcs=tab:\┆\ 
+    IndentLinesToggle
+    let g:indent_line_mode = "enable"
+  endif
+endfunction
+map <F6> <ESC>:call ToggleIndentLineMode()<CR>
+
 
 "YCM"
 let g:ycm_server_python_interpreter = '/usr/bin/python'
@@ -167,7 +182,6 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_signs = 0
-
 
 " Translate
 let g:translate_dest_lang='zh-TW'
