@@ -89,14 +89,15 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype c setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
-autocmd Filetype rs setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype rust setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype markdown setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype asciidoc setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype sh setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype org setlocal ts=2 sts=2 sw=2 expandtab 
 autocmd Filetype vue setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype just set syntax=make
+autocmd Filetype just setlocal syntax=make
+autocmd Filetype toml setlocal ts=4 sts=4 sw=4 expandtab
 
 let g:python_host_prog = '/usr/bin/python'
 
@@ -117,6 +118,7 @@ let g:NERDTreeHighlightCursorline = 1
 let g:indentLine_char = '┆'
 let g:indentLine_color_term = 236
 map <F6> <ESC>:IndentLinesToggle<CR>
+set list lcs=tab:\┆\ 
 
 "YCM"
 let g:ycm_server_python_interpreter = '/usr/bin/python'
