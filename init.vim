@@ -89,7 +89,7 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype c setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
-autocmd Filetype rust setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype rust setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype markdown setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype asciidoc setlocal ts=4 sts=4 sw=4 expandtab
@@ -119,7 +119,7 @@ let g:indentLine_char = '┆'
 let g:indentLine_color_term = 236
 set list lcs=tab:\┆\ 
 let g:indent_line_mode = "enable"
-highlight default TabIndent ctermfg=236 guifg=236
+highlight default TabIndent ctermfg=60 guifg=60
 match TabIndent /\t/
 function! ToggleIndentLineMode()
   if g:indent_line_mode == "enable"
@@ -133,7 +133,6 @@ function! ToggleIndentLineMode()
   endif
 endfunction
 map <F6> <ESC>:call ToggleIndentLineMode()<CR>
-
 
 "YCM"
 let g:ycm_server_python_interpreter = '/usr/bin/python'
@@ -278,3 +277,6 @@ map <C-~> <ESC>:TerminalSplit zsh<CR>
 
 " Rust fmt
 let g:rustfmt_autosave = 1
+
+" fugitive
+map <F7> <ESC>:Gvdiffsplit<CR>
