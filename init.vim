@@ -113,6 +113,7 @@ hi ColorColumn ctermbg=black
 "NERDTree"
 map <F5> <ESC>:NERDTreeToggle<CR>
 let g:NERDTreeHighlightCursorline = 1
+let g:NERDTreeShowHidden=1
 
 "indentLine"
 let g:indentLine_char = '┆'
@@ -142,7 +143,6 @@ let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_complete_in_comments=1
 " YCM for rust "
 let g:ycm_rust_src_path = '/home/yanganto/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-
 
 " ALE
 let g:ale_linters = {
