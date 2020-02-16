@@ -11,13 +11,13 @@ Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
-Plug 'chase/vim-ansible-yaml'
-"Plug 'zchee/nvim-go', { 'do': 'make'}
-Plug 'posva/vim-vue'
+" Plug 'chase/vim-ansible-yaml'
+" Plug 'zchee/nvim-go', { 'do': 'make'}
+" Plug 'posva/vim-vue'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
@@ -34,7 +34,6 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'idanarye/vim-vebugger'
 Plug 'tmhedberg/simpylfold'
 Plug 'Konfekt/FastFold'
-Plug 'severin-lemaignan/vim-minimap'
 Plug 'rhysd/git-messenger.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'RRethy/vim-illuminate'
@@ -47,7 +46,8 @@ Plug 'mattn/googletasks-vim'
 Plug 'mattn/webapi-vim'
 
 " Rust Linters
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 "Plug 'vim-syntastic/syntastic'
 "Plug 'alx741/vim-rustfmt'
 
@@ -115,6 +115,12 @@ hi ColorColumn ctermbg=black
 map <F5> <ESC>:NERDTreeToggle<CR>
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeShowHidden=1
+
+" CtrlP
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+    \ }
 
 "indentLine"
 let g:indentLine_char = '┆'
@@ -195,10 +201,8 @@ let g:ConqueTerm_StartMessages = 0
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-" Ack.vim (use ag )
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" Ag
+let g:ag_working_path_mode="r"
 
 " gutentags
 let g:gutentags_cache_dir = '~/.cache/gutentags'
@@ -261,10 +265,6 @@ let g:rust_fold = 1
 " vim table
 let g:table_mode_corner='|'
 
-" MiniMap
-map <F4> <Esc>:MinimapToggle<CR>
-let g:minimap_highlight='NonText'
-
 " Git Messenger
 nmap <Leader>gm <Plug>(git-messenger)
 let g:git_messenger_include_diff = "current"
@@ -282,3 +282,24 @@ let g:rustfmt_autosave = 1
 
 " fugitive
 map <F7> <ESC>:Gvdiffsplit<CR>
+
+" Racer 
+" rustup component add rls rust-analysis rust-src rls-preview
+let g:racer_cmd = '/home/yanganto/.cargo/bin/racer'
+let g:racer_experimental_completer = 1
+nmap gd <Plug>(rust-def)
+nmap gs <Plug>(rust-def-split)
+nmap gv <Plug>(rust-def-vertical)
+nmap K <Plug>(rust-doc)
+if executable('racer')
+autocmd User asyncomplete_setup call asyncomplete#register_source(
+    \ asyncomplete#sources#racer#get_source_options())
+endif
+" Let's define completion sources for rust
+if executable("rls")
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': { server_info->['rls']},
+        \ 'whitelist': ['rust'],
+    \ })
+endif
