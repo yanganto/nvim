@@ -189,6 +189,9 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_signs = 0
 
+" illuminate
+hi illuminatedWord cterm=underline,bold gui=underline,bold
+
 " Translate
 let g:translate_dest_lang='zh-TW'
 
