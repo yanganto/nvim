@@ -40,6 +40,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'RRethy/vim-illuminate'
 Plug 'tc50cal/vim-terminal'
 Plug 'tpope/vim-fugitive'
+Plug 'ludovicchabant/vim-gutentags'
 
 " google tasks app
 Plug 'mattn/googletasks-vim'
@@ -190,9 +191,6 @@ let g:ConqueTerm_Color = 2
 let g:ConqueTerm_CloseOnEnd = 1                                                       
 let g:ConqueTerm_StartMessages = 0                                                    
 
-" nvim-translator
-map <C-t> <ESC>:Translate<CR>
-
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -202,8 +200,11 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+" gutentags
+let g:gutentags_cache_dir = '~/.cache/gutentags'
+
 " Vista
-let g:vista_default_executive = 'ctags'
+" let g:vista_default_executive = 'TagbarToggle'
 let g:vista_mode = "none"
 function! ToggleVistaWindow()
   if g:vista_mode == "none"
@@ -242,7 +243,8 @@ function! ToggleSpellCheck()
 endfunction
 map <F9> <Esc>:call ToggleSpellCheck()<CR>
 map <F10> <Esc>]s
-
+" Translate
+map <F2> <ESC>:Translate<CR>
 
 " Fold
 highlight Folded ctermbg=black ctermfg=239
