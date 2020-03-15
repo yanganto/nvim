@@ -306,3 +306,6 @@ if executable("rls")
         \ 'whitelist': ['rust'],
     \ })
 endif
+
+" Debug functions
+autocmd Filetype rust map <F3> <ESC>:s/^/\/\*TODO:rm debug\*\/fn debug<T:std::fmt::Debug>(s:\&str,t:T){print!("ANT: {:}: {:?}\\n",s,t);}\r/<CR><ESC>:noh<CR>
