@@ -40,6 +40,7 @@ Plug 'RRethy/vim-illuminate'
 Plug 'tc50cal/vim-terminal'
 Plug 'tpope/vim-fugitive'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'jiangmiao/auto-pairs'
 
 " google tasks app
 Plug 'mattn/googletasks-vim'
