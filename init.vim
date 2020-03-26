@@ -62,6 +62,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'LnL7/vim-nix'
 
+" Following config setting for projects
+Plug 'editorconfig/editorconfig-vim'
+
 
 
 " Add plugins to &runtimepath
