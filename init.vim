@@ -22,7 +22,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'yanganto/nvim-translate'
+Plug 'yanganto/nvim-translate', {'branch': 'develop'}
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'cespare/vim-toml'
 Plug 'peterhoeg/vim-qml'
