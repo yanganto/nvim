@@ -54,13 +54,15 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
 " Code Complementation
 "Plug 'Valloric/YouCompleteMe'
-Plug 'zxqfl/tabnine-vim'
+"Plug 'zxqfl/tabnine-vim'
+Plug 'neovim/nvim-lsp'
 
 " Language Colorization
 Plug 'ap/vim-css-color'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'LnL7/vim-nix'
+Plug 'tasn/vim-tsx'
 
 " Following config setting for projects
 Plug 'editorconfig/editorconfig-vim'
@@ -145,15 +147,6 @@ function! ToggleIndentLineMode()
   endif
 endfunction
 map <F6> <ESC>:call ToggleIndentLineMode()<CR>
-
-"YCM"
-let g:ycm_server_python_interpreter = '/usr/bin/python'
-let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_complete_in_comments=1
-" YCM for rust "
-let g:ycm_rust_src_path = '/home/yanganto/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
 " ALE
 let g:ale_linters = {
@@ -291,7 +284,6 @@ let g:rustfmt_autosave = 1
 map <F7> <ESC>:Gvdiffsplit<CR>
 
 " Racer 
-" rustup component add rls rust-analysis rust-src rls-preview
 let g:racer_cmd = '/home/yanganto/.cargo/bin/racer'
 let g:racer_experimental_completer = 1
 nmap gd <Plug>(rust-def)
@@ -302,7 +294,6 @@ if executable('racer')
 autocmd User asyncomplete_setup call asyncomplete#register_source(
     \ asyncomplete#sources#racer#get_source_options())
 endif
-" Let's define completion sources for rust
 if executable("rls")
     au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
@@ -310,6 +301,15 @@ if executable("rls")
         \ 'whitelist': ['rust'],
     \ })
 endif
+
+"YCM"
+" let g:ycm_server_python_interpreter = '/usr/bin/python'
+" let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+" let g:ycm_seed_identifiers_with_syntax=1
+" let g:ycm_complete_in_comments=1
+" YCM for rust "
+" let g:ycm_rust_src_path = '/home/yanganto/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
 " Debug functions
 autocmd Filetype rust map <F3> <ESC>:s/^/\/\*TODO:rm debug\*\/fn debug<T:std::fmt::Debug>(s:\&str,t:T){print!("ANT: {:}: {:?}\\n",s,t);}\r/<CR><ESC>:noh<CR>
