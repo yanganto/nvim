@@ -1,9 +1,8 @@
-""""""""""""""""""""""""""
+"""""""""""""""""""""""""""
 """ vim plugin settings """
 """   plugin manager    """
 """""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged')
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 Plug 'kshenoy/vim-signature'
 Plug 'Yggdroot/indentLine'
@@ -11,9 +10,6 @@ Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
-" Plug 'chase/vim-ansible-yaml'
-" Plug 'zchee/nvim-go', { 'do': 'make'}
-" Plug 'posva/vim-vue'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -22,7 +18,6 @@ Plug 'liuchengxu/vista.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'yanganto/nvim-translate', {'branch': 'develop'}
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'cespare/vim-toml'
 Plug 'peterhoeg/vim-qml'
@@ -41,6 +36,10 @@ Plug 'tc50cal/vim-terminal'
 Plug 'tpope/vim-fugitive'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'jiangmiao/auto-pairs'
+
+" My Plugins
+Plug 'yanganto/nvim-translate', {'branch': 'develop'}
+Plug 'yanganto/nvim-translate-byte-literal', {'branch': 'master'}
 
 " google tasks app
 Plug 'mattn/googletasks-vim'
@@ -63,6 +62,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'LnL7/vim-nix'
 Plug 'tasn/vim-tsx'
+" Plug 'chase/vim-ansible-yaml'
+" Plug 'zchee/nvim-go', { 'do': 'make'}
+" Plug 'posva/vim-vue'
 
 " Following config setting for projects
 Plug 'editorconfig/editorconfig-vim'
@@ -105,6 +107,7 @@ autocmd Filetype org setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype vue setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype just setlocal syntax=make
 autocmd Filetype toml setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype vim setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:python_host_prog = '/usr/bin/python'
 
@@ -313,3 +316,13 @@ endif
 
 " Debug functions
 autocmd Filetype rust map <F3> <ESC>:s/^/\/\*TODO:rm debug\*\/fn debug<T:std::fmt::Debug>(s:\&str,t:T){print!("ANT: {:}: {:?}\\n",s,t);}\r/<CR><ESC>:noh<CR>
+
+" vim-translate-byte
+nmap tt :<C-u>TranslateByteArray<CR>
+
+
+" Fmt notify checker
+if !exists("g:rustfmt_autosave")
+  echo "[WARN] Rust fmt autosave disabled"
+endif
+
