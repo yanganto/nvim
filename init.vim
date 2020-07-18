@@ -194,6 +194,7 @@ hi illuminatedWord cterm=underline,bold gui=underline,bold
 
 " Translate
 let g:translate_dest_lang='zh-TW'
+let g:translate_display_option='status'
 
 " Go Debug
 let g:ConqueTerm_Color = 2                                                            
