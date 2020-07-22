@@ -21,7 +21,6 @@ Plug 'tpope/vim-repeat'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'cespare/vim-toml'
 Plug 'peterhoeg/vim-qml'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-speeddating'
 Plug 'jceb/vim-orgmode'
 Plug 'rhysd/vim-clang-format'
@@ -47,14 +46,14 @@ Plug 'mattn/webapi-vim'
 
 " Rust Linters
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 "Plug 'vim-syntastic/syntastic'
 "Plug 'alx741/vim-rustfmt'
 
 " Code Complementation
-"Plug 'Valloric/YouCompleteMe'
-"Plug 'zxqfl/tabnine-vim'
-Plug 'neovim/nvim-lsp'
+" Plug 'Valloric/YouCompleteMe'
+" Plug 'zxqfl/tabnine-vim'
+" Plug 'neovim/nvim-lsp'
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 
 " Language Colorization
 Plug 'ap/vim-css-color'
@@ -62,6 +61,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'LnL7/vim-nix'
 Plug 'tasn/vim-tsx'
+Plug 'qnighy/lalrpop.vim'
 " Plug 'chase/vim-ansible-yaml'
 " Plug 'zchee/nvim-go', { 'do': 'make'}
 " Plug 'posva/vim-vue'
@@ -69,6 +69,8 @@ Plug 'tasn/vim-tsx'
 " Following config setting for projects
 Plug 'editorconfig/editorconfig-vim'
 
+" Deubger
+Plug 'yanganto/vimspector', {'branch': 'Ant'}
 
 
 " Add plugins to &runtimepath
@@ -116,9 +118,9 @@ set colorcolumn=80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99
 hi ColorColumn ctermbg=black 
 
 
-""""""""""""""""""""
-""" Plug Settings
-""""""""""""""""""""
+"""""""""""""""""""
+"" Plug Settings ""
+"""""""""""""""""""
 
 "NERDTree"
 map <F5> <ESC>:NERDTreeToggle<CR>
@@ -284,27 +286,17 @@ map <C-~> <ESC>:TerminalSplit zsh<CR>
 " Rust fmt
 let g:rustfmt_autosave = 1
 
-" fugitive
-map <F7> <ESC>:Gvdiffsplit<CR>
 
-" Racer 
-let g:racer_cmd = '/home/yanganto/.cargo/bin/racer'
-let g:racer_experimental_completer = 1
-nmap gd <Plug>(rust-def)
-nmap gs <Plug>(rust-def-split)
-nmap gv <Plug>(rust-def-vertical)
-nmap K <Plug>(rust-doc)
-if executable('racer')
-autocmd User asyncomplete_setup call asyncomplete#register_source(
-    \ asyncomplete#sources#racer#get_source_options())
-endif
-if executable("rls")
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': { server_info->['rls']},
-        \ 'whitelist': ['rust'],
-    \ })
-endif
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['/usr/bin/rustup', 'run', 'stable', 'rls'],
+    \ }
+    " \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    " \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    " \ 'python': ['/usr/local/bin/pyls'],
+    " \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+
+nmap  K :call LanguageClient#textDocument_hover()<CR>
+nmap  gd :call LanguageClient#textDocument_definition()<CR>
 
 "YCM"
 " let g:ycm_server_python_interpreter = '/usr/bin/python'
@@ -316,7 +308,7 @@ endif
 " let g:ycm_rust_src_path = '/home/yanganto/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
 " Debug functions
-autocmd Filetype rust map <F3> <ESC>:s/^/\/\*TODO:rm debug\*\/fn debug<T:std::fmt::Debug>(s:\&str,t:T){print!("ANT: {:}: {:?}\\n",s,t);}\r/<CR><ESC>:noh<CR>
+autocmd Filetype rust map <F3> <ESC>:s/^/\/\*TODO:rm debug\*\/fn debug<T:std::fmt::Debug>(s:\&str,t:T){print!("ANT: {:}: {:#?}\\n",s,t);}\r/<CR><ESC>:noh<CR>
 
 " vim-translate-byte
 nmap tt :<C-u>TranslateByteArray<CR>
@@ -325,5 +317,17 @@ nmap tt :<C-u>TranslateByteArray<CR>
 " Fmt notify checker
 if !exists("g:rustfmt_autosave")
   echo "[WARN] Rust fmt autosave disabled"
+  " call nvim_buf_set_lines(buf, 0, -1, v:true, [WARN] Rust fmt autosave disabled)
+  " let opts = {'relative': 'cursor', 'width': 20, 'height': 33, 'col': 1, 'row': 0, 'anchor': 'NW', 'style': 'minimal'}
+  " let win = nvim_open_win(buf, v:true, opts)
+  " call nvim_win_set_option(win, 'winhl', 'Normal:popupwindow')
+  " highlight popupwindow ctermfg=15 ctermbg=4
 endif
 
+" vimspector
+let g:vimspector_enable_mappings = 'ANT'
+let g:vimspector_sidebar_width = 75
+let g:vimspector_bottombar_height = 15
+let g:vimspector_code_minwidth = 90
+let g:vimspector_terminal_maxwidth = 100
+let g:vimspector_terminal_minwidth = 20
