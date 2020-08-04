@@ -70,7 +70,7 @@ Plug 'qnighy/lalrpop.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " Deubger
-Plug 'yanganto/vimspector', {'branch': 'Ant'}
+" Plug 'yanganto/vimspector', {'branch': 'Ant'}
 
 
 " Add plugins to &runtimepath
@@ -113,9 +113,9 @@ autocmd Filetype vim setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:python_host_prog = '/usr/bin/python'
 
-" hight the 
-set colorcolumn=80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99
-hi ColorColumn ctermbg=black 
+" highlight long column
+execute "set colorcolumn=" . join(range(80,99), ',') . ',' . join(range(101,119), ',')
+hi ColorColumn ctermbg=236
 
 
 """""""""""""""""""
@@ -179,7 +179,7 @@ let g:ale_sign_error = '◉'
 let g:ale_sign_warning = '◉'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
-highlight ALEErrorSign ctermfg=DarkMagenta guifg=#CC0000
+highlight ALEErrorSign ctermfg=DarkMagenta guifg=#4B0082
 highlight ALEWarningSign ctermfg=8 ctermbg=DarkGray guifg=#444444
 highlight ALEWarning ctermbg=8 ctermbg=DarkGray
 highlight ALEError ctermbg=9 ctermfg=DarkGray
