@@ -76,9 +76,9 @@ Plug 'editorconfig/editorconfig-vim'
 " Add plugins to &runtimepath
 call plug#end()
 
-""""""""""""""""""""
-""" Preset Env
-""""""""""""""""""""
+""""""""""""""""""
+""" Preset Env """
+""""""""""""""""""
 
 set encoding=utf-8
 set termencoding=utf-8
@@ -289,12 +289,11 @@ let g:rustfmt_autosave = 1
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['/usr/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['/usr/bin/pyls'],
     \ }
     " \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
     " \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    " \ 'python': ['/usr/local/bin/pyls'],
     " \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-
 nmap  K :call LanguageClient#textDocument_hover()<CR>
 nmap  gd :call LanguageClient#textDocument_definition()<CR>
 
