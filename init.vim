@@ -38,7 +38,7 @@ Plug 'jiangmiao/auto-pairs'
 
 " My Plugins
 Plug 'yanganto/nvim-translate', {'branch': 'develop'}
-Plug 'yanganto/nvim-translate-byte-literal', {'branch': 'master'}
+" Plug 'yanganto/nvim-translate-byte-literal', {'branch': 'master'}
 
 " google tasks app
 Plug 'mattn/googletasks-vim'
@@ -288,7 +288,7 @@ let g:rustfmt_autosave = 1
 
 
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['/usr/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'python': ['/usr/bin/pyls'],
     \ }
     " \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
@@ -296,6 +296,11 @@ let g:LanguageClient_serverCommands = {
     " \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
 nmap  K :call LanguageClient#textDocument_hover()<CR>
 nmap  gd :call LanguageClient#textDocument_definition()<CR>
+nmap  <Leader>rn :call LanguageClient#textDocument_rename()<CR>
+nmap  <Leader>i :call LanguageClient#textDocument_implementation()<CR>
+nmap  <Leader>rr :call LanguageClient#textDocument_references()<CR>
+nmap  <Leader>rs :call LanguageClient#textDocument_documentSymbol()<CR>
+
 
 "YCM"
 " let g:ycm_server_python_interpreter = '/usr/bin/python'
@@ -310,7 +315,7 @@ nmap  gd :call LanguageClient#textDocument_definition()<CR>
 autocmd Filetype rust map <F3> <ESC>:s/^/\/\*TODO:rm debug\*\/fn debug<T:std::fmt::Debug>(s:\&str,t:T){print!("ANT: {:}: {:#?}\\n",s,t);}\r/<CR><ESC>:noh<CR>
 
 " vim-translate-byte
-nmap tt :<C-u>TranslateByteArray<CR>
+" nmap tt :<C-u>TranslateByteArray<CR>
 
 
 " Fmt notify checker
