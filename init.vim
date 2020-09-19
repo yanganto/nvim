@@ -10,7 +10,8 @@ Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'liuchengxu/vim-clap'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rking/ag.vim'
@@ -35,6 +36,7 @@ Plug 'tc50cal/vim-terminal'
 Plug 'tpope/vim-fugitive'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'jiangmiao/auto-pairs'
+Plug 'easymotion/vim-easymotion'
 
 " My Plugins
 Plug 'yanganto/nvim-translate', {'branch': 'develop'}
@@ -335,3 +337,6 @@ let g:vimspector_bottombar_height = 15
 let g:vimspector_code_minwidth = 90
 let g:vimspector_terminal_maxwidth = 100
 let g:vimspector_terminal_minwidth = 20
+
+" easymotion
+nmap s <Plug>(easymotion-s2)
