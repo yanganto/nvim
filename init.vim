@@ -37,6 +37,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'ntpeters/vim-better-whitespace'
 
 " My Plugins
 Plug 'yanganto/nvim-translate', {'branch': 'develop'}
@@ -138,17 +140,17 @@ let g:ctrlp_custom_ignore = {
 "indentLine"
 let g:indentLine_char = '┆'
 let g:indentLine_color_term = 236
-set list lcs=tab:\┆\ 
+set list lcs=tab:\┆\
 let g:indent_line_mode = "enable"
 highlight default TabIndent ctermfg=60 guifg=60
 match TabIndent /\t/
 function! ToggleIndentLineMode()
   if g:indent_line_mode == "enable"
-    set list lcs=tab:\ \ 
+    set list lcs=tab:\ \
     IndentLinesToggle
     let g:indent_line_mode = "disable"
   else
-    set list lcs=tab:\┆\ 
+    set list lcs=tab:\┆\
     IndentLinesToggle
     let g:indent_line_mode = "enable"
   endif
@@ -162,7 +164,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
-let g:ale_python_pylint_options ='--disable=C0301,F0401,C0111' 
+let g:ale_python_pylint_options ='--disable=C0301,F0401,C0111'
 " F0401 - Unable to import
 " C0111 - doc string check
 " C0301 - line too long
@@ -201,9 +203,9 @@ let g:translate_dest_lang='zh-TW'
 let g:translate_display_option='status'
 
 " Go Debug
-let g:ConqueTerm_Color = 2                                                            
-let g:ConqueTerm_CloseOnEnd = 1                                                       
-let g:ConqueTerm_StartMessages = 0                                                    
+let g:ConqueTerm_Color = 2
+let g:ConqueTerm_CloseOnEnd = 1
+let g:ConqueTerm_StartMessages = 0
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -290,9 +292,10 @@ let g:rustfmt_autosave = 1
 
 
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['/usr/bin/pyls'],
+    \ 'rust': ['rust-analyzer'],
+    \ 'python': ['pyls'],
     \ }
+    " \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     " \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
     " \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
     " \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
@@ -340,3 +343,6 @@ let g:vimspector_terminal_minwidth = 20
 
 " easymotion
 nmap s <Plug>(easymotion-s2)
+
+" white space
+highlight ExtraWhitespace ctermbg=DarkGray
