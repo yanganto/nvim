@@ -1,7 +1,3 @@
-"""""""""""""""""""""""""""
-""" vim plugin settings """
-"""   plugin manager    """
-"""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'kshenoy/vim-signature'
@@ -10,11 +6,10 @@ Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
-" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'liuchengxu/vim-clap'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rking/ag.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
@@ -40,8 +35,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'ntpeters/vim-better-whitespace'
 
-" My Plugins
-Plug 'yanganto/nvim-translate', {'branch': 'develop'}
+" TODO: fix this on Nix
+" Plug 'yanganto/nvim-translate', {'branch': 'develop'}
 " Plug 'yanganto/nvim-translate-byte-literal', {'branch': 'master'}
 
 " google tasks app
@@ -91,7 +86,6 @@ set guifont=Fira\ Code:h12
 
 hi Search cterm=NONE ctermfg=black ctermbg=gray
 hi Comment ctermfg=12 gui=bold guifg=Blue
-"language message zh_TW.UTF-8
 
 set number
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
@@ -104,14 +98,15 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype c setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
-autocmd Filetype rust setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd Filetype rust setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype markdown setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype asciidoc setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype sh setlocal ts=4 sts=4 sw=4 expandtab
-autocmd Filetype org setlocal ts=2 sts=2 sw=2 expandtab 
+autocmd Filetype org setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype vue setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype just setlocal syntax=make
+autocmd Filetype rasi setlocal syntax=css
 autocmd Filetype toml setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype vim setlocal ts=2 sts=2 sw=2 expandtab
 
@@ -169,7 +164,7 @@ let g:ale_python_pylint_options ='--disable=C0301,F0401,C0111'
 " C0111 - doc string check
 " C0301 - line too long
 
-let g:ale_python_flake8_options ='--ignore=E302,E303,E501' 
+let g:ale_python_flake8_options ='--ignore=E302,E303,E501'
 " E501  - line too long
 " E302  - two line spacing
 " E302  - too many blank lines
@@ -315,10 +310,6 @@ nmap  <Leader>rs :call LanguageClient#textDocument_documentSymbol()<CR>
 " let g:ycm_complete_in_comments=1
 " YCM for rust "
 " let g:ycm_rust_src_path = '/home/yanganto/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-
-" Debug functions
-autocmd Filetype rust map <F3> <ESC>:s/^/\/\*TODO:rm debug\*\/fn debug<T:std::fmt::Debug>(s:\&str,t:T){print!("ANT: {:}: {:#?}\\n",s,t);}\r/<CR><ESC>:noh<CR>
-
 " vim-translate-byte
 " nmap tt :<C-u>TranslateByteArray<CR>
 
@@ -333,13 +324,14 @@ if !exists("g:rustfmt_autosave")
   " highlight popupwindow ctermfg=15 ctermbg=4
 endif
 
+" TODO
 " vimspector
-let g:vimspector_enable_mappings = 'ANT'
-let g:vimspector_sidebar_width = 75
-let g:vimspector_bottombar_height = 15
-let g:vimspector_code_minwidth = 90
-let g:vimspector_terminal_maxwidth = 100
-let g:vimspector_terminal_minwidth = 20
+" let g:vimspector_enable_mappings = 'ANT'
+" let g:vimspector_sidebar_width = 75
+" let g:vimspector_bottombar_height = 15
+" let g:vimspector_code_minwidth = 90
+" let g:vimspector_terminal_maxwidth = 100
+" let g:vimspector_terminal_minwidth = 20
 
 " easymotion
 nmap s <Plug>(easymotion-s2)
