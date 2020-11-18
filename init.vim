@@ -55,9 +55,6 @@ Plug 'nvim-lua/completion-nvim'
 
 Plug 'editorconfig/editorconfig-vim'
 
-" lint hightlight
-Plug 'Iron-E/nvim-highlite'
-
 call plug#end()
 
 """"""""""""""""""
@@ -278,6 +275,8 @@ let g:rustfmt_autosave = 1
   require'lspconfig'.rust_analyzer.setup{}
   require'lspconfig'.pyls.setup{}
 END
+autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd Filetype rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
 sign define LspDiagnosticsErrorSign text=!
 sign define LspDiagnosticsWarningSign text=?
 sign define LspDiagnosticsInformationSign text=i
