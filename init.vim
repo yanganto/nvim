@@ -1,60 +1,39 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'junegunn/vim-easy-align'
+" Displays
 Plug 'kshenoy/vim-signature'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'w0rp/ale'
-Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'liuchengxu/vim-clap'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'RRethy/vim-illuminate'
+
+" Brosing
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'liuchengxu/vim-clap'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'liuchengxu/vista.vim'
-Plug 'airblade/vim-gitgutter'
+
+" Editor
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'tpope/vim-speeddating'
+Plug 'easymotion/vim-easymotion'
+Plug 'Konfekt/FastFold'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'jiangmiao/auto-pairs'
+
+" Version Control Helper
+Plug 'airblade/vim-gitgutter'
+
+" Syntax
 Plug 'cespare/vim-toml'
 Plug 'peterhoeg/vim-qml'
-Plug 'tpope/vim-speeddating'
 Plug 'jceb/vim-orgmode'
 Plug 'rhysd/vim-clang-format'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'idanarye/vim-vebugger'
-Plug 'tmhedberg/simpylfold'
-Plug 'Konfekt/FastFold'
-Plug 'rhysd/git-messenger.vim'
 Plug 'digitaltoad/vim-pug'
-Plug 'RRethy/vim-illuminate'
-Plug 'tc50cal/vim-terminal'
-Plug 'tpope/vim-fugitive'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'jiangmiao/auto-pairs'
-Plug 'easymotion/vim-easymotion'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'ntpeters/vim-better-whitespace'
-
-" TODO: fix this on Nix
-" Plug 'yanganto/nvim-translate', {'branch': 'develop'}
-" Plug 'yanganto/nvim-translate-byte-literal', {'branch': 'master'}
-
-" google tasks app
-Plug 'mattn/googletasks-vim'
-Plug 'mattn/webapi-vim'
-
-" Rust Linters
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
-"Plug 'vim-syntastic/syntastic'
-"Plug 'alx741/vim-rustfmt'
-
-" Code Complementation
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'zxqfl/tabnine-vim'
-" Plug 'neovim/nvim-lsp'
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-
-" Language Colorization
 Plug 'ap/vim-css-color'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -65,14 +44,20 @@ Plug 'qnighy/lalrpop.vim'
 " Plug 'zchee/nvim-go', { 'do': 'make'}
 " Plug 'posva/vim-vue'
 
-" Following config setting for projects
+" Linter
+" Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+
+" TODO: fix this on Nix
+" Plug 'yanganto/nvim-translate', {'branch': 'develop'}
+" Plug 'yanganto/nvim-translate-byte-literal', {'branch': 'master'}
+
 Plug 'editorconfig/editorconfig-vim'
 
-" Deubger
-" Plug 'yanganto/vimspector', {'branch': 'Ant'}
+" lint hightlight
+Plug 'Iron-E/nvim-highlite'
 
-
-" Add plugins to &runtimepath
 call plug#end()
 
 """"""""""""""""""
@@ -84,8 +69,10 @@ set termencoding=utf-8
 set langmenu=zh_TW.UTF-8
 set guifont=Fira\ Code:h12
 
-hi Search cterm=NONE ctermfg=black ctermbg=gray
+
 hi Comment ctermfg=12 gui=bold guifg=Blue
+hi Search cterm=NONE ctermfg=black ctermbg=gray
+highlight ExtraWhitespace ctermbg=DarkGray
 
 set number
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
@@ -110,9 +97,7 @@ autocmd Filetype rasi setlocal syntax=css
 autocmd Filetype toml setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype vim setlocal ts=2 sts=2 sw=2 expandtab
 
-let g:python_host_prog = '/usr/bin/python'
 
-" highlight long column
 execute "set colorcolumn=" . join(range(80,99), ',') . ',' . join(range(101,119), ',')
 hi ColorColumn ctermbg=236
 
@@ -125,12 +110,6 @@ hi ColorColumn ctermbg=236
 map <F5> <ESC>:NERDTreeToggle<CR>
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeShowHidden=1
-
-" CtrlP
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
-    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
-    \ }
 
 "indentLine"
 let g:indentLine_char = '┆'
@@ -152,43 +131,51 @@ function! ToggleIndentLineMode()
 endfunction
 map <F6> <ESC>:call ToggleIndentLineMode()<CR>
 
+" Clap
+map <C-n> <ESC>:Clap files<CR>
+
+
 " ALE
-let g:ale_linters = {
-\   'python': ['pylint -j2', 'flake8'],
-\}
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\}
-let g:ale_python_pylint_options ='--disable=C0301,F0401,C0111'
-" F0401 - Unable to import
-" C0111 - doc string check
-" C0301 - line too long
+" let g:ale_linters = {
+" \   'python': ['pylint -j2', 'flake8'],
+" \}
+" let g:ale_fixers = {
+" \   'javascript': ['eslint'],
+" \}
+" let g:ale_python_pylint_options ='--disable=C0301,F0401,C0111'
+" " F0401 - Unable to import
+" " C0111 - doc string check
+" " C0301 - line too long
 
-let g:ale_python_flake8_options ='--ignore=E302,E303,E501'
-" E501  - line too long
-" E302  - two line spacing
-" E302  - too many blank lines
+" let g:ale_python_flake8_options ='--ignore=E302,E303,E501'
+" " E501  - line too long
+" " E302  - two line spacing
+" " E302  - too many blank lines
 
-" Auto remove tailing space in python
-autocmd BufWritePre *.py :%s/\s\+$//e
+" " Auto remove tailing space in python
+" autocmd BufWritePre *.py :%s/\s\+$//e
+
+" let g:ale_sign_column_always = 1
+" let g:ale_sign_error = '◉'
+" let g:ale_sign_warning = '◉'
+" highlight clear ALEErrorSign
+" highlight clear ALEWarningSign
+" highlight ALEErrorSign ctermfg=DarkMagenta guifg=#4B0082
+" highlight ALEWarningSign ctermfg=8 ctermbg=DarkGray guifg=#444444
+" highlight ALEWarning ctermbg=8 ctermbg=DarkGray
+" highlight ALEError ctermbg=9 ctermfg=DarkGray
+" let g:ale_echo_msg_error_str = 'E'
+" let g:ale_echo_msg_warning_str = 'W'
+" let g:ale_echo_msg_format = '【%severity%｜%linter%】%s'
+" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" let g:airline#extensions#ale#enabled = 1
+" let g:ale_set_signs = 0
 
 
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '◉'
-let g:ale_sign_warning = '◉'
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-highlight ALEErrorSign ctermfg=DarkMagenta guifg=#4B0082
-highlight ALEWarningSign ctermfg=8 ctermbg=DarkGray guifg=#444444
-highlight ALEWarning ctermbg=8 ctermbg=DarkGray
-highlight ALEError ctermbg=9 ctermfg=DarkGray
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '【%severity%｜%linter%】%s'
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-let g:airline#extensions#ale#enabled = 1
-let g:ale_set_signs = 0
+" GitGutter
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
 " illuminate
 hi illuminatedWord cterm=underline,bold gui=underline,bold
@@ -197,17 +184,17 @@ hi illuminatedWord cterm=underline,bold gui=underline,bold
 let g:translate_dest_lang='zh-TW'
 let g:translate_display_option='status'
 
-" Go Debug
-let g:ConqueTerm_Color = 2
-let g:ConqueTerm_CloseOnEnd = 1
-let g:ConqueTerm_StartMessages = 0
+" " Go Debug
+" let g:ConqueTerm_Color = 2
+" let g:ConqueTerm_CloseOnEnd = 1
+" let g:ConqueTerm_StartMessages = 0
 
-" CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+" " CtrlP
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
 
-" Ag
-let g:ag_working_path_mode="r"
+" " Ag
+" let g:ag_working_path_mode="r"
 
 " gutentags
 let g:gutentags_cache_dir = '~/.cache/gutentags'
@@ -265,51 +252,59 @@ let g:markdown_folding = 1
 let g:tex_fold_enabled = 1
 let g:xml_syntax_folding = 1
 let g:javaScript_fold = 1
-let g:rust_fold = 1
+let g:rust_fold = 0
 
 " vim table
 let g:table_mode_corner='|'
 
-" Git Messenger
-nmap <Leader>gm <Plug>(git-messenger)
-let g:git_messenger_include_diff = "current"
-hi gitmessengerPopupNormal term=None guifg=#eeeeee guibg=#333333 ctermfg=255 ctermbg=234
-hi gitmessengerHeader term=None guifg=#88b8f6 ctermfg=111
-hi gitmessengerHash term=None guifg=#f0eaaa ctermfg=229
-hi gitmessengerHistory term=None guifg=#fd8489 ctermfg=210
-
-
-" Terminal bash
-map <C-~> <ESC>:TerminalSplit zsh<CR>
-
 " Rust fmt
 let g:rustfmt_autosave = 1
+ " let g:LanguageClient_serverCommands = {
+ "     \ 'rust': ['rust-analyzer'],
+ "     \ 'python': ['pyls'],
+ "     \ }
+ "     " \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+ "     " \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+ "     " \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+ "     " \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+ " nmap  K :call LanguageClient#textDocument_hover()<CR>
+ " nmap  gd :call LanguageClient#textDocument_definition()<CR>
+ " nmap  <Leader>rn :call LanguageClient#textDocument_rename()<CR>
+ " nmap  <Leader>i :call LanguageClient#textDocument_implementation()<CR>
+ " nmap  <Leader>rr :call LanguageClient#textDocument_references()<CR>
+ " nmap  <Leader>rs :call LanguageClient#textDocument_documentSymbol()<CR>
 
+:lua << END
+  require'lspconfig'.rust_analyzer.setup{}
+  require'lspconfig'.pyls.setup{}
+END
+sign define LspDiagnosticsErrorSign text=!
+sign define LspDiagnosticsWarningSign text=?
+sign define LspDiagnosticsInformationSign text=i
+sign define LspDiagnosticsHintSign text=.
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rust-analyzer'],
-    \ 'python': ['pyls'],
-    \ }
-    " \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    " \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    " \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    " \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-nmap  K :call LanguageClient#textDocument_hover()<CR>
-nmap  gd :call LanguageClient#textDocument_definition()<CR>
-nmap  <Leader>rn :call LanguageClient#textDocument_rename()<CR>
-nmap  <Leader>i :call LanguageClient#textDocument_implementation()<CR>
-nmap  <Leader>rr :call LanguageClient#textDocument_references()<CR>
-nmap  <Leader>rs :call LanguageClient#textDocument_documentSymbol()<CR>
+let g:completion_enable_auto_popup = 1
 
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-"YCM"
-" let g:ycm_server_python_interpreter = '/usr/bin/python'
-" let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-" let g:ycm_seed_identifiers_with_syntax=1
-" let g:ycm_complete_in_comments=1
-" YCM for rust "
-" let g:ycm_rust_src_path = '/home/yanganto/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
+
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+
 " vim-translate-byte
 " nmap tt :<C-u>TranslateByteArray<CR>
 
@@ -317,24 +312,7 @@ nmap  <Leader>rs :call LanguageClient#textDocument_documentSymbol()<CR>
 " Fmt notify checker
 if !exists("g:rustfmt_autosave")
   echo "[WARN] Rust fmt autosave disabled"
-  " call nvim_buf_set_lines(buf, 0, -1, v:true, [WARN] Rust fmt autosave disabled)
-  " let opts = {'relative': 'cursor', 'width': 20, 'height': 33, 'col': 1, 'row': 0, 'anchor': 'NW', 'style': 'minimal'}
-  " let win = nvim_open_win(buf, v:true, opts)
-  " call nvim_win_set_option(win, 'winhl', 'Normal:popupwindow')
-  " highlight popupwindow ctermfg=15 ctermbg=4
 endif
-
-" TODO
-" vimspector
-" let g:vimspector_enable_mappings = 'ANT'
-" let g:vimspector_sidebar_width = 75
-" let g:vimspector_bottombar_height = 15
-" let g:vimspector_code_minwidth = 90
-" let g:vimspector_terminal_maxwidth = 100
-" let g:vimspector_terminal_minwidth = 20
 
 " easymotion
 nmap s <Plug>(easymotion-s2)
-
-" white space
-highlight ExtraWhitespace ctermbg=DarkGray
