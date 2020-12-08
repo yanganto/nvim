@@ -48,6 +48,7 @@ Plug 'qnighy/lalrpop.vim'
 " Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+Plug 'heavenshell/vim-tslint'
 
 " TODO: fix this on Nix
 " Plug 'yanganto/nvim-translate', {'branch': 'develop'}
@@ -79,6 +80,7 @@ autocmd Filetype sass setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype typescript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype c setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
@@ -276,6 +278,7 @@ let g:rustfmt_autosave = 1
 :lua << END
   require'lspconfig'.rust_analyzer.setup{}
   require'lspconfig'.pyls.setup{}
+  require'lspconfig'.tsserver.setup{}
 END
 autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd Filetype rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
