@@ -72,7 +72,32 @@ hi Comment ctermfg=12 gui=bold guifg=Blue
 hi Search cterm=NONE ctermfg=black ctermbg=gray
 highlight ExtraWhitespace ctermbg=DarkGray
 
-set number
+let g:line_number_mode = "hybrid"
+set nu rnu
+function! ToggleLineNumberStyle()
+  if g:line_number_mode == "hybrid"
+    echo "Set Line number relative"
+    set nu!
+    set rnu
+    let g:line_number_mode = "relative"
+  elseif g:line_number_mode == "relative"
+    echo "Set Line number only"
+    set nu
+    set rnu!
+    let g:line_number_mode = "number"
+  elseif g:line_number_mode == "number"
+    echo "Set Line number None"
+    set nornu
+    set nonu
+    let g:line_number_mode = "none"
+  else
+    echo "Set Line number hybrid"
+    set nu rnu
+    let g:line_number_mode = "hybrid"
+  endif
+endfunction
+
+map <F12> <Esc>:call ToggleLineNumberStyle()<CR>
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype css setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
@@ -80,7 +105,7 @@ autocmd Filetype sass setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype typescript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype typescript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype c setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
