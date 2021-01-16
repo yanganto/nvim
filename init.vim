@@ -23,6 +23,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'Konfekt/FastFold'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
+Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 
 " Version Control Helper
 Plug 'airblade/vim-gitgutter'
