@@ -41,7 +41,8 @@ Plug 'mxw/vim-jsx'
 Plug 'LnL7/vim-nix'
 Plug 'tasn/vim-tsx'
 Plug 'qnighy/lalrpop.vim'
-" Plug 'chase/vim-ansible-yaml'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'chase/vim-ansible-yaml'
 " Plug 'zchee/nvim-go', { 'do': 'make'}
 " Plug 'posva/vim-vue'
 
@@ -103,25 +104,31 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype css setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype sass setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype rasi setlocal syntax=css
+
 autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype toml setlocal ts=4 sts=4 sw=4 expandtab
+
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype typescript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype vue setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype typescript setlocal ts=2 sts=2 sw=2 expandtab
+
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
+
 autocmd Filetype c setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype rust setlocal ts=4 sts=4 sw=4 expandtab
-autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 autocmd Filetype markdown setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype asciidoc setlocal ts=4 sts=4 sw=4 expandtab
+
 autocmd Filetype sh setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype bash setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype zsh setlocal ts=4 sts=4 sw=4 expandtab
-autocmd Filetype org setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype vue setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype just setlocal syntax=make
-autocmd Filetype rasi setlocal syntax=css
-autocmd Filetype toml setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype org setlocal ts=2 sts=2 sw=2 expandtab
+
 autocmd Filetype vim setlocal ts=2 sts=2 sw=2 expandtab
 
 
