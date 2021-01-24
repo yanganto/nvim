@@ -47,7 +47,6 @@ Plug 'chase/vim-ansible-yaml'
 " Plug 'posva/vim-vue'
 
 " Linter
-" Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'heavenshell/vim-tslint'
@@ -293,26 +292,13 @@ let g:table_mode_corner='|'
 
 " Rust fmt
 let g:rustfmt_autosave = 1
- " let g:LanguageClient_serverCommands = {
- "     \ 'rust': ['rust-analyzer'],
- "     \ 'python': ['pyls'],
- "     \ }
- "     " \ 'rust': ['rustup', 'run', 'stable', 'rls'],
- "     " \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
- "     " \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
- "     " \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
- " nmap  K :call LanguageClient#textDocument_hover()<CR>
- " nmap  gd :call LanguageClient#textDocument_definition()<CR>
- " nmap  <Leader>rn :call LanguageClient#textDocument_rename()<CR>
- " nmap  <Leader>i :call LanguageClient#textDocument_implementation()<CR>
- " nmap  <Leader>rr :call LanguageClient#textDocument_references()<CR>
- " nmap  <Leader>rs :call LanguageClient#textDocument_documentSymbol()<CR>
 
 :lua << END
   require'lspconfig'.rust_analyzer.setup{}
   require'lspconfig'.pyls.setup{}
   require'lspconfig'.tsserver.setup{}
 END
+
 autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd Filetype rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
 sign define LspDiagnosticsErrorSign text=!
@@ -341,9 +327,10 @@ nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <Leader> rn    <cmd>lua vim.lsp.buf.rename()<CR>
 
 " vim-translate-byte
-" nmap tt :<C-u>TranslateByteArray<CR>
+nmap tt :<C-u>TranslateByteArray<CR>
 
 
 " Fmt notify checker
