@@ -27,6 +27,8 @@ Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 
 " Version Control Helper
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
 " Syntax
 Plug 'cespare/vim-toml'
@@ -328,7 +330,7 @@ nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <Leader>rn     <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <Leader> rn     <cmd>lua vim.lsp.buf.rename()<CR>
 " command! -nargs=* <leader>rn :call lua <q-args>)
 
 " vim-translate-byte
