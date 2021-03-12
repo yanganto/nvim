@@ -344,3 +344,5 @@ endif
 
 " easymotion
 nmap s <Plug>(easymotion-s2)
+
+command! CargoPlay !cargo play %
