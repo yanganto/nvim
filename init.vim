@@ -54,8 +54,8 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'heavenshell/vim-tslint'
 
 " TODO: fix this on Nix
-" Plug 'yanganto/nvim-translate', {'branch': 'develop'}
-" Plug 'yanganto/nvim-translate-byte-literal', {'branch': 'master'}
+Plug 'yanganto/nvim-translate', {'branch': 'master'}
+Plug 'yanganto/nvim-translate-byte-literal', {'branch': 'master'}
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -111,9 +111,9 @@ autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype toml setlocal ts=4 sts=4 sw=4 expandtab
 
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype vue setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype typescript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype typescript setlocal ts=4 sts=4 sw=4 expandtab
 
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 expandtab
 
@@ -320,8 +320,9 @@ set completeopt=menuone,noinsert,noselect
 " Avoid showing message extra message when using completion
 set shortmess+=c
 
-nnoremap <silent> <c-]> <cmd>:tab split<CR>:lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> <c-}> <cmd>:split<CR>:lua vim.lsp.buf.definition()<CR>
+" nnoremap <silent> <c-]> <cmd>:tab split<CR>:lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <c-]> <cmd>:vsplit<CR>:lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <m-]> <cmd>:lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
